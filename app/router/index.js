@@ -1,19 +1,39 @@
 import React from 'react'
-import {Router, Route, Link} from 'react-router'
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
-import home from '.././containers/Detail/index.jsx'
+import Home from '.././containers/Home/index.jsx'
 import detail from '.././containers/Detail/index.jsx'
 
-class RouterMap extends React.Component {
-    render() {
-        return (
-            <Router>
-              <Route path="/" component={home}>
-                <Route path="about" component={detail} />
-              </Route>
-            </Router>
-            )
-    }
-}
+// class RouterMap extends React.Component {
+//     render() {
+//         return (
+//             <Router>
+//                 <div>
+//                   <ul>
+//                     <li><Link to="/">Home</Link></li>
+//                   </ul>
 
-export default RouterMap
+//                   <hr/>
+//                   <Route exact path="/" component={Home}/>
+//                   <Route path="/topics" component={detail}/>
+//                 </div>
+//               </Router>
+//             )
+//     }
+// }
+const BasicExample = () => (
+  <Router>
+    <div>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/detail">detail</Link></li>
+      </ul>
+      <Route path="/" component={Home}/>
+      <Route path="/detail" component={detail}/>
+      {/*<Route path="/topics" component={Topics}/>*/}
+    </div>
+  </Router>
+)
+
+export default BasicExample
+// export default RouterMap
