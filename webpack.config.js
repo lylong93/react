@@ -10,28 +10,43 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
 
-    //模块解析
-    resolve:{
-        extensions:['.js','.jsx']
+    resolve: {
+        //模块解析
+        extensions: ['.js', '.jsx'],
+        // 引用路径
+        alias: {
+            W: path.resolve(__dirname, 'app/'),
+        }
     },
 
     module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                exclude:/node_modules/,
+                exclude: /node_modules/,
                 use: [
                     'babel-loader',
                 ]
             },
             {
-                test: /\.css$/,
+                test: /\.(css|scss)$/,
                 use: [
-                    'sass-loader',
+                    'style-loader',
                     'css-loader',
-                    'postcss-loader'
+                    'sass-loader',
+                // 'postcss-loader'
                 ]
+
             },
+            // {
+
+            //     test: /\.scss$/,
+            //     use: [
+            //         'style-loader',
+            //         'css-loader',
+            //         'sass-loader'
+            //     ]
+            // },
             {
                 test: /\.(png|gif|jpg|jpeg|bmp)$/i,
                 use: [
@@ -67,10 +82,10 @@ module.exports = {
             template: 'index.html'
         }),
 
-        // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
-        // new webpack.DefinePlugin({
-        //   __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
-        // })
+    // 可在业务 js 代码中使用 __DEV__ 判断是否是dev模式（dev模式下可以提示错误、测试报告等, production模式不提示）
+    // new webpack.DefinePlugin({
+    //   __DEV__: JSON.stringify(JSON.parse((process.env.NODE_ENV == 'dev') || 'false'))
+    // })
     ],
 
     devServer: {
