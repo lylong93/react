@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+
 import App from './containers/Detail/index.jsx'
 
 import RouterMap from './router/index.js'
@@ -8,7 +10,8 @@ import RouterMap from './router/index.js'
 
 ReactDOM.render(
     // <App/>,
-    <RouterMap/>,
-    // <h1>Hello, world!</h1>,
+    <Provider>
+        <RouterMap/>
+    </Provider>,
     document.getElementById('app')
 );
