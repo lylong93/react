@@ -1,15 +1,21 @@
-import React from 'react'
+import React , { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+// import PropTypes from 'prop-types'
 import css from './index.scss'
+// import addTodo from '/W/action'
+import action from 'W/reducers/action'
 
 class HomeHeader extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isof: true
-        };
-        this.handleClick = this.handleClick.bind(this)
-    }
+
+    // constructor(props) {
+    //     // super(props);
+    //     this.state = {
+    //         isof: true
+    //     };
+    //     this.handleClick = this.handleClick.bind(this)
+    // }
     render() {
+        const {dispatch, go} = this.props
         return (
             <div id= "home-header" className="kk">
                 <div className="gg" >
@@ -31,12 +37,20 @@ class HomeHeader extends React.Component {
     }
 
     handleClick(e) {
-        e.preventDefault();
-        this.setState(prevState => ({
-            isof: !prevState.isof
-        }));
-        console.log(this.state.isof)
+        // e.preventDefault();
+        // this.setState(prevState => ({
+        //     isof: !prevState.isof
+        // }));
+        // console.log(this.state.isof)
+        dispatch(addTodo(text))
+    // go()
     }
 
 }
-export default HomeHeader
+
+function select() {
+    return {
+        go: () => dispatch(addTodo)
+    };
+}
+export default connect()(HomeHeader)

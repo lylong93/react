@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import App from './containers/Detail/index.jsx'
+// import App from './containers/Detail/index.jsx'
+import root from './test.jsx'
+import store from './reducers/store.js'
 
 import RouterMap from './router/index.js'
 
@@ -10,7 +12,7 @@ import RouterMap from './router/index.js'
 
 ReactDOM.render(
     // <App/>,
-    <Provider>
+    <Provider store={store}>
         <RouterMap/>
     </Provider>,
     document.getElementById('app')
