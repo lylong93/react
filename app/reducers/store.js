@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
-import one from './resuce'
+import counter from './resuce'
 
-let store = createStore(one)
+const store = createStore(counter)
 
 export default store;

@@ -1,9 +1,12 @@
 import React from 'react'
+import HomeHeader from 'W/components/HomeHeader'
 
-class Welcome extends React.Component{
-    render(){
-        return <h2> im detail </h2>
+class Home extends React.Component {
+    render() {
+        return <div > 
+            <HomeHeader/>
+             </div>
     }
 }
 
-export  default Welcome
+export default Home

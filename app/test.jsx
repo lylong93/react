@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
@@ -8,20 +7,20 @@ import { Provider, connect } from 'react-redux'
 // React component
 class Counter extends Component {
     render() {
-        const {onIncreaseClick} = this.props
+        const {value, onIncreaseClick} = this.props
         return (
             <div>
-        { /*<span>{this.state.count}</span>*/ }
+        <span>{value}</span>
         <button onClick={onIncreaseClick}>Increase</button>
       </div>
         )
     }
 }
 
-// Counter.propTypes = {
-//     value: PropTypes.number.isRequired,
-//     onIncreaseClick: PropTypes.func.isRequired
-// }
+Counter.propTypes = {
+    value: PropTypes.number.isRequired,
+    onIncreaseClick: PropTypes.func.isRequired
+}
 
 // Action
 const increaseAction = {
@@ -47,11 +46,11 @@ function counter(state = {
 const store = createStore(counter)
 
 // Map Redux state to component props
-// function mapStateToProps(state) {
-//     return {
-//         value: state.count
-//     }
-// }
+function mapStateToProps(state) {
+    return {
+        value: state.count
+    }
+}
 
 // Map Redux actions to component props
 function mapDispatchToProps(dispatch) {
@@ -60,17 +59,10 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-
-// function select(state, dispatch) {
-//     return {
-//         mapStateToProps: mapStateToProps(state),
-//         mapDispatchToProps: mapDispatchToProps(dispatch)
-//     }
-// }
 // Connected Component
-// const App = connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(Counter)
+const App = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Counter)
 
-export default connect(mapDispatchToProps)(Counter)
+export { App, store };
