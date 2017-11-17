@@ -1,17 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
-import App from './containers/Detail/index.jsx'
-import store from './reducers/store.js'
+import store from './reducers/store'
+import RouterMap from './router'
 
-import RouterMap from './router/index.js'
-
+import 'W/public/css/reset.scss'
 
 ReactDOM.render(
-    // <App/>,
     <Provider store={store}>
-        <App/>
+        <RouterMap/>
     </Provider>,
     document.getElementById('app')
 );
