@@ -1,5 +1,5 @@
 import 'whatwg-fetch'
-import APILIST from 'W/api'
+import APILIST from './api'
 
 
 const fetchapi = {

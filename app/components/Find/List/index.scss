@@ -1,0 +1,42 @@
+.List-item-wrapper{
+    height: 500px;
+    border: 1px solid red;
+    padding: 15px;
+    .List-item-wrapper-main{
+        display: flex;
+        justify-content:space-between;
+        background: blue;
+        height: 350px;
+        .Liwm-left{
+            width: 200px;
+            height: 200px;
+            margin:50px;
+            border: 1px solid red;
+        }
+        .Liwm-right{
+            width: 370px;
+            height: 250px;
+            margin:50px;
+            border: 1px solid red;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+
+        }
+    }
+    .List-item-wrapper-footer{
+        background: yellow;
+        height: 150px;
+        .Liwf-title{
+            font-size: 30px;
+            width: 60%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow:ellipsis;
+        }
+        .Liwf-other{
+            font-size: 20px;
+        }
+    }
+}
