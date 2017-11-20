@@ -1,4 +1,5 @@
 import React from 'React'
+import LoadMore from '../LoadMore'
 import { Link } from 'react-router-dom'
 
 import './index.scss'
@@ -6,6 +7,9 @@ import './index.scss'
 class List extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            hasMore: false,
+        }
     }
     render() {
         return (
@@ -28,7 +32,7 @@ class List extends React.Component {
                             </Link>
                         </div>
             })}
-                <div></div>
+            <LoadMore/>
             </div>
         )
     }
