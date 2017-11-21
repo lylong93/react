@@ -1,4 +1,4 @@
-const ADD_TODO = 'ADD_TODO';
+const ADD_TODO = 'test';
 
 const to = {
     ADD_TODO

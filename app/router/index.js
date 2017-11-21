@@ -6,7 +6,6 @@ import Home from 'W/components/Home'
 import Find from 'W/components/Find'
 import User from 'W/components/User'
 
-import './1.scss'
 class routeMap extends React.Component {
     render() {
         return (

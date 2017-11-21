@@ -1,5 +1,7 @@
 import to from './userinfo'
-const increaseAction = {
-    type: 'ok'
+
+export function test() {
+    return {
+        type: 'test',
+    }
 }
-export default increaseAction

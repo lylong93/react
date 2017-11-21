@@ -3,7 +3,9 @@ import APILIST from './api'
 
 
 const fetchapi = {
-    getOrganizeList: fetch(APILIST.organizelist)
+    getOrganizeList: function(page) {
+        return fetch(APILIST.organizelist + page)
+    }
 }
 
 export default fetchapi
