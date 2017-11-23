@@ -1,17 +1,13 @@
 import React from 'React'
-
+import './style.scss'
 class Search extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: []
-        }
-    }
     render() {
         return (
-            <div>search
+            <div className='search'>  
+            search
             </div>
         )
     }
 }
+
 export default Search

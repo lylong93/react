@@ -1,42 +1,67 @@
 import React from 'React'
-import LoadMore from '../LoadMore'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import './index.scss'
+import LoadMore from '../parts/LoadMore'
+import Item from '../parts/Item'
+import Fetch from 'W/fetch'
 
 class List extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             hasMore: false,
+            page: 0,
+            data: []
         }
     }
     render() {
         return (
-            <div>{this.props.data.map((item, index) => {
-                return <div key={item.roomid} className='List-item-wrapper'>
-                            <Link to='/'>
-                                <div className='List-item-wrapper-main'>
-                                    <div className='Liwm-left'>{item.bang}</div>
-                                    <div className='Liwm-right'>
-                                        <img src={item.img} alt={item.title}/>
-                                    </div>
-                                </div>
-                                <div className='List-item-wrapper-footer'>
-                                    <div className='Liwf-title'>{item.title}</div>
-                                    <div className='Liwf-other'>
-                                        <span>{item.time}</span>
-                                        <span>{item.city}</span>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-            })}
-            <LoadMore/>
+            <div>
+            <Item data={this.state.data} />
+            <LoadMore loadr={this.on.bind(this)}/>
             </div>
         )
     }
+    componentDidMount() {
+        //加载第一页数据
+        this.getData(0)
+    }
+    // 加载下一页数据
+    on() {
+        let _page = this.state.page
+        this.setState({
+            page: _page + 1
+        })
+        this.getData(_page)
+    }
+    getData(page) {
+        Fetch.getOrganizeList(page)
+            .then(res => {
+                return res.json()
+            })
+            .then(res => {
+                let _data = res.data.list
+                this.setState({
+                    //数据拼接
+                    data: this.state.data.concat(_data)
+                })
+            })
+    }
+
 
 }
 
-export default List;
+function mapStateToProps(state) {
+    return {
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+    }
+}
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(List)

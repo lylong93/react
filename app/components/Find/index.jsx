@@ -3,10 +3,8 @@ import Fetch from 'W/fetch'
 import { bindActionCreators } from 'redux'
 
 import List from './List'
-import Search from './Search'
+import Header from './Header'
 import Test from './test'
-// import tt from 'W/reducers/index.js'
-// import * as oldActionCreator from 'W/reducers/index.js'
 import { test } from 'W/reducers/action.js'
 
 
@@ -22,34 +20,13 @@ class Find extends React.Component {
     }
     render() {
         return (
-            <div id='find'>     
-                <div>this</div>
-                <button onClick={this.on.bind(this)}> llll</button>
-                <Test num={this.state.num}></Test>
-            { /*<Search/>{this.state.num}
-            <List data={this.state.data}/>*/ }
+            <div id='find'>
+                <Header/>
+                <List/>
             </div>
         )
     }
-    componentDidMount() {
-        Fetch.getOrganizeList()
-            .then(res => {
-                return res.json()
-            })
-            .then(res => {
-                this.setState({
-                    data: res.data.list
-                })
-            // console.log(this.props.children)
-            })
-    }
-    on() {
-        this.setState({
-            num: this.state.num + 1
-        })
-        this.props.test();
-        console.log(this.props.test)
-    }
+    componentDidMount() {}
 }
 function mapStateToProps(state) {
     return {
