@@ -6,6 +6,8 @@ import LoadMore from '../parts/LoadMore'
 import Item from '../parts/Item'
 import Fetch from 'W/fetch'
 
+import './style.scss'
+
 class List extends React.Component {
     constructor(props) {
         super(props);
@@ -17,9 +19,9 @@ class List extends React.Component {
     }
     render() {
         return (
-            <div>
-            <Item data={this.state.data} />
-            <LoadMore loadr={this.on.bind(this)}/>
+            <div className='sty'>
+                <Item data={this.state.data} />
+                <LoadMore loadr={this.on.bind(this)}/>
             </div>
         )
     }

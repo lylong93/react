@@ -7,6 +7,7 @@ import Find from 'W/components/Find'
 import User from 'W/components/User'
 import Detail from 'W/components/Detail'
 import Search from 'W/components/Search'
+import City from 'W/components/City'
 
 class routeMap extends React.Component {
     render() {
@@ -19,6 +20,7 @@ class routeMap extends React.Component {
                 <Route path="/find/detail/:id" component={Detail}/>  
                 <Route path="/user" component={User}/>
                 <Route path="/search" component={Search}/>
+                <Route path="/city" component={City}/>
               </div>
             </HashRouter>
         )

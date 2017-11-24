@@ -1,5 +1,6 @@
-import { combinReducers } from 'redux'
-import action from './userinfo.js'
+import { combineReducers } from 'redux'
+import { to, CITY } from './userinfo.js'
+
 //规则
 function counter(state = {
         count: 1
@@ -19,4 +20,18 @@ function counter(state = {
         return state
     }
 }
-export default counter
+function city(state = {
+        city: '包头'
+    }, action) {
+    switch (action.type) {
+    case CITY.CHANGE:
+        return action.city
+    default:
+        return state.city
+    }
+}
+const test = combineReducers({
+    counter,
+    city
+})
+export default test

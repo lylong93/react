@@ -9,7 +9,7 @@ class Detail extends React.Component {
     }
     render() {
         return (
-            <div id='siangq' className="xiangq">详情 
+            <div className="xiangq" onWheel={this.ok.bind(this)}>详情 
                 <div onClick={this.back.bind(this)}>返回</div>
                 <div></div>
             </div>
@@ -21,6 +21,12 @@ class Detail extends React.Component {
     }
     back() {
         window.history.back()
+        console.log(this.refs)
+    }
+    ok(e) {
+        //阻止默认事件 阻止冒泡
+        e.preventDefault()
+        console.log(e)
     }
 }
 export default Detail
