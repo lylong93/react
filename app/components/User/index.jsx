@@ -1,17 +1,28 @@
 import React from 'React'
+import { connect } from 'react-redux'
 
 class User extends React.Component {
     render() {
         return (
             <div>
-                <from>
                 <input type="text" placeholder='账户'/>
-                <br/>
-                <input type="text" placeholder='密码'/>
-                </from>
+                <input type="text" placeholder='密码'/>   
             </div>
         )
     }
 }
 
-export default User
+function mapStateToProps(state) {
+    return {
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+    }
+}
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(User)
+// export default User
